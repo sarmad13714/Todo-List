@@ -5,7 +5,8 @@ namespace App\Traits;
 trait FormatDates
 {
     public static function get_local_time(){
-        $ip = file_get_contents("https://ipecho.net/plain");
+//        $ip = file_get_contents("https://ipecho.net/plain");
+        $ip = $_SERVER['REMOTE_ADDR'];
         $url = 'http://ip-api.com/json/'.$ip;
         $tz = file_get_contents($url);
         $tz = json_decode($tz,true)['timezone'];
