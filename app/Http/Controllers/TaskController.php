@@ -15,7 +15,8 @@ class TaskController extends Controller
 
     public function index(){
         $tasks = Task::orderBy("id", "DESC")->get();
-        return view("tasks", compact('tasks'));
+        $region = FormatDates::get_local_time();
+        return view("tasks", compact('tasks', 'region'));
     }
     public function store(Request $request)
     {
